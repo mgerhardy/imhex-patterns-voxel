@@ -1,3 +1,5 @@
+// Qubicle QBCL format
+
 struct String {
 	u32 len;
 	char string[len];
@@ -39,10 +41,10 @@ struct Compound {
 };
 
 struct Digest {
-  u8 first[4]; // changes on each re-save
-  u8 second[4]; // changes if the model changes
-  u8 third[4]; // chnages on each re-save
-  u8 fourth[4]; // changes if the model changes
+	u8 first[4]; // changes on each re-save
+	u8 second[4]; // changes if the model changes
+	u8 third[4]; // chnages on each re-save
+	u8 fourth[4]; // changes if the model changes
 };
 
 struct Node {

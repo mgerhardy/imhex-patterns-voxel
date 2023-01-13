@@ -1,3 +1,5 @@
+// Command and Conquer voxel model format
+
 struct vec4_s {
     float x [[color("FF0000")]];
     float y [[color("00FF00")]];
