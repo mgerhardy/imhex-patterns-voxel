@@ -65,5 +65,3 @@ struct frame_s {
 };
 
 vxl_s vxl @0x00;
-
-

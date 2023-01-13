@@ -26,4 +26,3 @@ struct frame_s {
 
 hva_s hva @0x00;
 frame_s frames[hva.numFrames] @sizeof(hva);
-
