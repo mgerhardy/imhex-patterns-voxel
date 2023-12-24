@@ -6,58 +6,59 @@ struct Color {
 };
 
 struct ChunkMap {
-    double scale;
-    u32 len;
-    char name[len];
+	double scale;
+	u32 len;
+	char name[len];
 };
 
 struct Field {
-    char id[3];
-    if (id == "ssc") {
+	char id[3];
+	if (id == "ssc") {
 		Color sky_color;
-    } else if (id == "shc") {
-    	Color sky_horizonColor;
-    } else if (id == "sac") {
+	} else if (id == "shc") {
+		Color sky_horizonColor;
+	} else if (id == "sac") {
 		Color sky_abyssColor;
-    } else if (id == "slc") {
-    	Color sky_lightColor;
-    } else if (id == "sli") {
-	    float sky_lightIntensity;
-    } else if (id == "foc") {
-	    Color fog_color;
-    } else if (id == "fon") {
-	    float fog_near;
-    } else if (id == "fof") {
-	    float fog_far;
-    } else if (id == "foa") {
-	    float light_absorbtion;
-    } else if (id == "suc") {
-	    Color sun_color;
-    } else if (id == "sui") {
-	    float sun_intensity;
-    } else if (id == "sur") {
-	    float sun_rotation[2];
-    } else if (id == "asl") {
-	    float ambient_skyLightFactor;
-    } else if (id == "adl") {
-	    float ambient_dirLightFactor;
-    } else if (id == "txt") {
-    	u8 len;
-    	char txt[len];
-    }
+	} else if (id == "slc") {
+		Color sky_lightColor;
+	} else if (id == "sli") {
+		float sky_lightIntensity;
+	} else if (id == "foc") {
+		Color fog_color;
+	} else if (id == "fon") {
+		float fog_near;
+	} else if (id == "fof") {
+		float fog_far;
+	} else if (id == "foa") {
+		float light_absorbtion;
+	} else if (id == "suc") {
+		Color sun_color;
+	} else if (id == "sui") {
+		float sun_intensity;
+	} else if (id == "sur") {
+		float sun_rotation[2];
+	} else if (id == "asl") {
+		float ambient_skyLightFactor;
+	} else if (id == "adl") {
+		float ambient_dirLightFactor;
+	} else if (id == "txt") {
+		u8 len;
+		char txt[len];
+	}
 };
 
 struct Ambience {
-    u16 size;
-    u8 nFields;
-    Field fields[nFields];
+	u16 size;
+	u8 nFields;
+	Field fields[nFields];
 };
 
 struct Block {
 	u16 keySize;
 	char key[keySize];
+	// 1 == add, 0 == remove
 	u8 blockAction;
-	if (blockAction == 1) { // 1 == add, 0 == remove
+	if (blockAction == 1) {
 		Color color;
 	}
 };
@@ -84,12 +85,12 @@ struct ObjectGroupEntry3 {
 		char name[nameLen];
 	} else if (id == "pm") {
 		// phsicsmode
-        // RigidbodyMode_Disabled = 0,
-        // RigidbodyMode_Trigger = 1,
-        // RigidbodyMode_TriggerPerBlock = 2,
-        // RigidbodyMode_Static = 3,
-        // RigidbodyMode_StaticPerBlock = 4,
-        // RigidbodyMode_Dynamic = 5,
+		// RigidbodyMode_Disabled = 0,
+		// RigidbodyMode_Trigger = 1,
+		// RigidbodyMode_TriggerPerBlock = 2,
+		// RigidbodyMode_Static = 3,
+		// RigidbodyMode_StaticPerBlock = 4,
+		// RigidbodyMode_Dynamic = 5,
 		u32 byte;
 	} else {
 		u8 byte;
@@ -115,7 +116,7 @@ struct Objects3 {
 	Object3 fail;
 };
 
-struct ObjectGroupEntry2 {	
+struct ObjectGroupEntry2 {
 	char id[2];
 	if (id == "id") {
 		u8 uuidLen;
@@ -193,12 +194,10 @@ struct Header {
 	} else if (version == 2) {
 		Chunk2 chunks[2];
 	} else if (version == 3) {
-		Chunk3 chunks[3];  
+		Chunk3 chunks[3];
 	} else {
 		// just a table
 	}
 };
 
 Header hdr @0x00;
-
-
